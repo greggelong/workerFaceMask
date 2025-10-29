@@ -74,7 +74,24 @@ function gotFaces(results) {
   faces = results;
 }
 
-function keyPressed() {
+/* function keyPressed() {
   imgInd++;
   imgInd = imgInd % 5;
+} */
+
+function keyReleased() {
+  changeMask();
+}
+
+function touchEnded() {
+  changeMask();
+}
+
+function changeMask() {
+  imgInd++;
+  imgInd = imgInd % 5;
+}
+
+function touchMoved() {
+  return false;
 }
