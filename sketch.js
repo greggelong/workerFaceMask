@@ -92,6 +92,6 @@ function changeMask() {
   imgInd = imgInd % 5;
 }
 
-function touchMoved() {
+/* function touchMoved() {
   return false;
-}
+} */
