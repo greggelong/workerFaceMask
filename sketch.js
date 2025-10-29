@@ -15,6 +15,9 @@ function preload() {
   faceMesh = ml5.faceMesh(options);
   uvMapImage[0] = loadImage("wMask2.png");
   uvMapImage[1] = loadImage("monkey2.png");
+  uvMapImage[2] = loadImage("gmask2.png");
+  uvMapImage[3] = loadImage("y3.png");
+  uvMapImage[4] = loadImage("dmask.png");
 }
 
 function setup() {
@@ -72,5 +75,5 @@ function gotFaces(results) {
 
 function keyPressed() {
   imgInd++;
-  imgInd = imgInd % 2;
+  imgInd = imgInd % 5;
 }
