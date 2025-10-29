@@ -3,16 +3,18 @@ let video;
 let faces = [];
 let options = { maxFaces: 10, refineLandmarks: false, flipped: true };
 
-let uvMapImage;
+let uvMapImage = [];
 
 let triangulation;
 let uvCoords;
 let cnv;
+let imgInd = 0;
 
 function preload() {
   // Load the faceMesh model
   faceMesh = ml5.faceMesh(options);
-  uvMapImage = loadImage("wMask2.png");
+  uvMapImage[0] = loadImage("wMask2.png");
+  uvMapImage[1] = loadImage("monkey2.png");
 }
 
 function setup() {
@@ -41,7 +43,7 @@ function draw() {
 
     // Draw all the triangles
     noStroke();
-    texture(uvMapImage);
+    texture(uvMapImage[imgInd]);
     textureMode(NORMAL);
     beginShape(TRIANGLES);
     for (let i = 0; i < triangulation.length; i++) {
@@ -66,4 +68,9 @@ function draw() {
 function gotFaces(results) {
   // Save the output to the faces variable
   faces = results;
+}
+
+function keyPressed() {
+  imgInd++;
+  imgInd = imgInd % 2;
 }
